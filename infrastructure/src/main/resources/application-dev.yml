@@ -3,7 +3,7 @@ server:
 
 spring:
   jpa:
-    show-sql: true
+    show-sql: false
   h2:
     console:
       enabled: true
