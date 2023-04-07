@@ -6,5 +6,5 @@ resources:
   - app-deployment.yaml
   - app-service.yaml
 images:
-  - name: 190752870288.dkr.ecr.us-east-1.amazonaws.com/student-app
+  - name: 190752870288.dkr.ecr.us-east-1.amazonaws.com/book-ms
     newTag: "1.0"

@@ -1,5 +1,7 @@
 FROM openjdk:17
 
+## JAR_PATH book-launcher/target
+
 ARG JAR_FILE=book-launcher/target/book-ms.jar
 
 WORKDIR /opt/app
