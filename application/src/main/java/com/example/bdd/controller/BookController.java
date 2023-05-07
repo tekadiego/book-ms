@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/books")
+@CrossOrigin(originPatterns = "*")
+@RequestMapping("api/v1/books")
 public class BookController {
 
     private BookServicePort bookServicePort;
@@ -17,27 +18,27 @@ public class BookController {
         this.bookServicePort = bookServicePort;
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public BookDto addBook(@RequestBody BookDto bookDto) {
         return bookServicePort.addBook(bookDto);
     }
 
-    @PutMapping("/update")
-    public BookDto updateBook(@RequestBody BookDto bookDto) {
+    @PutMapping("/{id}")
+    public BookDto updateBook(@PathVariable long id,@RequestBody BookDto bookDto) {
         return bookServicePort.updateBook(bookDto);
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public BookDto getBookByID(@PathVariable long id) {
         return bookServicePort.getBookById(id);
     }
 
-    @GetMapping("/get")
+    @GetMapping
     public List<BookDto> getAllBooks() {
         return bookServicePort.getBooks();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteBookByID(@PathVariable long id) {
         bookServicePort.deleteBookById(id);
     }
